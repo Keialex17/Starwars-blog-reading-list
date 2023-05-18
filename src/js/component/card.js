@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Character = (props) => {
 	return (
 		<div className="col-3 p-2">
-			<div className="card">
+			<div className="card bg-dark text-white">
 				{	props.item.image != "" &&
 					<img src={`https://starwars-visualguide.com/assets/img/${props.naturate == "people" ? "characters" : "planets"}/${props.item.uid}.jpg`} className="card-img-top" style={{ maxHeight: '300px', objectFit: 'cover' }} alt={"wizzard"+props.item.name}/>}
 				<div className="card-body">

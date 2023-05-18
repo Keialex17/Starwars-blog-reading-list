@@ -14,9 +14,9 @@ export const Home = () => {
 	}, [])
 
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center mt-5 bg-dark text-white">
 			<h1>Star Wars API 💫</h1>
-			<div className="d-flex flex-wrap">
+			<div className="d-flex flex-wrap bg-dark text-white">
 				{
 					store.characters.length > 0 &&
 					store.characters.map((people) => <Character item={people} key={people.uid} naturate="people" />)
