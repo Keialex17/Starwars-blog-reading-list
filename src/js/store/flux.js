@@ -1,20 +1,41 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [],
+			planets: [],
+			vehicles: [],
 		},
 		actions: {
+			loadPeople: async ()=>{
+				try{
+					const resp = await fetch(`https://www.swapi.tech/api/people/`)
+					const data = await resp.json()
+					setStore({characters: data.results})
+					console.log(data)
+				}catch(err){
+					console.log(err)
+				}
+			},
+			loadPlanets: async ()=>{
+				try{
+					const resp = await fetch(`https://www.swapi.tech/api/planets/`)
+					const data = await resp.json()
+					setStore({planets: data.results})
+					console.log(data)
+				}catch(err){
+					console.log(err)
+				}
+			},
+			loadVehicles: async ()=>{
+				try{
+					const resp = await fetch(`https://www.swapi.tech/api/vehicles/`)
+					const data = await resp.json()
+					setStore({vehicles: data.results})
+					console.log(data)
+				}catch(err){
+					console.log(err)
+				}
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
