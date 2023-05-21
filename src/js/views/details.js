@@ -26,9 +26,12 @@ export const Details = props => {
 
 	console.log(item)
 	return (
-		<div className="jumbotron">
+		<div className="jumbotron bg-dark text-white">
 			{/* <h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1> */}
 
+			<div class="card">
+  			<div class="card-body bg-dark">
+    			This is some text within a card body.
 			<hr className="my-4" />
 				<h1>{item.properties?.name}</h1>
 			<Link to="/">
@@ -36,6 +39,8 @@ export const Details = props => {
 					Back home
 				</span>
 			</Link>
+  			</div>
+			</div>
 		</div>
 	);
 };
