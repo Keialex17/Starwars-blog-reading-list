@@ -25,19 +25,13 @@ const Favorite = () =>{
                         return (
                             <li className="dropdown-item">
                                 {item.name}
+                                <span onClick={()=> actions.addFavorites(item)}>
+                                    ❌
+                                </span>
                             </li>
                         )
                     })
                 }
-                {/* <Link to="/details">
-                <li className="dropdown-item" href="#"> </li>
-                </Link>
-                <Link to="/details">
-                <li className="dropdown-item" href="#"> Another action</li>
-                </Link>
-                <Link to="/details">
-                <li className="dropdown-item" href="#">Something else here</li>
-                </Link> */}
               </ul>
         </div>
 </div>

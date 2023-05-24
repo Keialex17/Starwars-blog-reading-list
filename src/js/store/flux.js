@@ -1,12 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-		// store: guarda la informacion de globalmente
+		// store: guarda la informacion globalmente
 		//actions: guarda funciones que se pueden usar globalmente
 		store: {
 			characters: [],
 			planets: [],
 			vehicles: [],
-			favorites: [],
+			favorites: JSON.parse(localStorage.getItem("favorites")) || [],
 		},
 		actions: {
 			loadPeople: async ()=>{
@@ -39,15 +39,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(err)
 				}
 			},
-			addFavorites: (uid, naturate) =>{
+			addFavorites: (item) =>{
 				const store = getStore()
-				const favorite = store[naturate].find((item)=> {
-					return item.uid == uid
-				})
-				setStore({
-					...store,
-					favorites : [...store.favorites, favorite]
-				})
+				// const favorite = store[naturate].find((item)=> {
+				// 	return item.uid == uid
+				// })
+				const favoriteCondition = store.favorites.some((fav)=>fav.name== item.name)
+				if(favoriteCondition){
+					const nuevoFavorito = store.favorites.filter((fav)=>fav.name != item.name)
+					setStore({
+						...store, 
+						favorites : nuevoFavorito
+					})
+					localStorage.setItem("favorites", JSON.stringify(store.favorites))
+				} else{
+					setStore({
+						...store,
+						favorites : [...store.favorites, item]
+					})
+					localStorage.setItem("favorites", JSON.stringify(store.favorites))
+				}
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

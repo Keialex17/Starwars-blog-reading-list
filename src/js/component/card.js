@@ -25,7 +25,7 @@ const Character = (props) => {
 					<Link to={`details/${props.naturate}/${props.item.uid}`} className="btn btn-outline-info d-flex justify-content-start">Read detail</Link>
 					</div>
 					<div className="p-2 btn btn-outline-warning d-flex justify-content-end" onClick={()=> { 
-						actions.addFavorites(props.item.uid, props.naturate)}}>
+						actions.addFavorites(props.item)}}>
 						
 						💛
 					</div>

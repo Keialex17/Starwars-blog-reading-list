@@ -15,7 +15,7 @@ export const Home = () => {
 	}, [])
 
 	return (
-		<div className="text-center mt-5 bg-dark text-white">
+		<div className="text-center bg-dark text-white">
 			{/* <Navbar/> */}
 			<h1>Star Wars API 💫</h1>
 			<div className="d-flex flex-wrap bg-dark text-white">
