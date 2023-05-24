@@ -12,7 +12,7 @@ export const Details = props => {
 
 	const loadItem = async ()=>{
 		try{
-			const resp = await fetch(`https://www.swapi.tech/api/${naturate}/${theid}`)
+			const resp = await fetch(`https://www.swapi.tech/api/${naturate == "characters" ? "people" : naturate }/${theid}`)
 			const data = await resp.json()
 			setItem(data.result)
 			console.log(data.result)

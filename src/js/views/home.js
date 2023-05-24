@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import Character from "../component/card";
+import { Navbar } from "../component/navbar";
 
 export const Home = () => {
 
@@ -15,11 +16,12 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5 bg-dark text-white">
+			{/* <Navbar/> */}
 			<h1>Star Wars API 💫</h1>
 			<div className="d-flex flex-wrap bg-dark text-white">
 				{
 					store.characters.length > 0 &&
-					store.characters.map((people) => <Character item={people} key={people.uid} naturate="people" />)
+					store.characters.map((people) => <Character item={people} key={people.uid} naturate="characters" />)
 				}
 			</div>
 			<div className="d-flex flex-wrap">

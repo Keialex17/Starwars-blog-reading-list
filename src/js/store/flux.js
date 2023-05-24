@@ -1,9 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
+		// store: guarda la informacion de globalmente
+		//actions: guarda funciones que se pueden usar globalmente
 		store: {
 			characters: [],
 			planets: [],
 			vehicles: [],
+			favorites: [],
 		},
 		actions: {
 			loadPeople: async ()=>{
@@ -35,6 +38,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}catch(err){
 					console.log(err)
 				}
+			},
+			addFavorites: (uid, naturate) =>{
+				const store = getStore()
+				const favorite = store[naturate].find((item)=> {
+					return item.uid == uid
+				})
+				setStore({
+					...store,
+					favorites : [...store.favorites, favorite]
+				})
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
